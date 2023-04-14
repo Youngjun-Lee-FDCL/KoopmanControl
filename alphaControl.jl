@@ -1,4 +1,4 @@
-module job
+module alphaControl
 using DifferentialEquations, LinearAlgebra, ControlSystems, Plots
 using Statistics, MatrixEquations
 using Flux, Zygote, ForwardDiff
@@ -176,7 +176,7 @@ function stepCmd(t, stepTimes, stepValues)
     return cmd
 end
 function train(;n=10::Integer, epoches=3::Integer, batchsize=1, lr=0.01, type=Float32, seed=2023, hidden_layer=[64;32;16], N=5, act=relu)
-    # ls, pa, ϕ, W, X, Y = job.train(n=1000, epoches=1000, batchsize=200, N=2, lr=0.05, hidden_layer=[128,64,32])
+    # ls, pa, ϕ, W, X, Y = alphaControl.train(n=1000, epoches=1000, batchsize=200, N=2, lr=0.05, hidden_layer=[128,64,32])
     Random.seed!(seed)
     nₓ = 2 # state dimension
     nᵤ = 1 # input dimension
